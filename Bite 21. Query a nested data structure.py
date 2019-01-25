@@ -14,16 +14,21 @@ def get_all_jeeps(cars=cars):
 
 def get_first_model_each_manufacturer(cars=cars):
     """return a list of matching models (original ordering)"""
-    return 
+    return [cars[x][0] for x in cars]
 
 
-# def get_all_matching_models(cars=cars, grep='trail'):
-#     """return a list of all models containing the case insensitive
-#        'grep' string which defaults to 'trail' for this exercise,
-#        sort the resulting sequence alphabetically"""
-#     pass
+def get_all_matching_models(cars=cars, grep='CO'):
+    """return a list of all models containing the case insensitive
+       'grep' string which defaults to 'trail' for this exercise,
+       sort the resulting sequence alphabetically"""
+    car_list = []
+    for i in cars:
+        for model in cars[i]:
+            if grep.lower() in model.lower():
+                car_list.append(model)
+    return sorted(car_list)
 
 
-# def sort_car_models(cars=cars):
-#     """sort the car models (values) and return the resulting cars dict"""
-#     pass
+def sort_car_models(cars=cars):
+    """sort the car models (values) and return the resulting cars dict"""
+    return {i:sorted(cars[i]) for i in cars}
