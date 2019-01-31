@@ -1,4 +1,2 @@
-alphanumeric = list('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') + range(0,10)
-a = [1, 2, 3]
-a = int(a[0])
-print(a)
+from datetime import datetime
+print datetime(2017, 3, 29, 0, 0)
