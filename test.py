@@ -1,2 +1,4 @@
-from datetime import datetime
-print datetime(2017, 3, 29, 0, 0)
+import string, random
+alphabet = string.ascii_letters + string.digits
+
+random.choices(alphabet, k=4)
