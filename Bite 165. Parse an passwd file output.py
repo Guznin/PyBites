@@ -42,5 +42,3 @@ def get_users_for_shell(passwd_output: str = PASSWD_OUTPUT,
     """
     passwd_output = passwd_output.splitlines()
     return [i.split(":")[0] for i in passwd_output if "bin/" + grep_shell in i.split(":")[-1]]
-
-get_users_for_shell()
