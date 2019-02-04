@@ -18,13 +18,3 @@ def gen_key(parts=4, chars_per_part=8):
         part_key = join(random.choices(ALPHABET, k=chars_per_part))
         add(part_key)
     return '-'.join(i for i in keylist)
-
-
-gen_key() 
-
-
-
-# DASH = '-'
-# def gen_key(parts=4, chars_per_part=8):
-#     return DASH.join(''.join(choice(ALPHABET) for i in range(chars_per_part))
-#                      for _ in range(parts))

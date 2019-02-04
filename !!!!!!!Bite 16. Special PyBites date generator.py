@@ -6,11 +6,22 @@ See the tests for more details how your code will be tested: as this is a beginn
 
 We will revisit this in an intermediate challenge. Have fun!"""
 
-from datetime import datetime
+import datetime
 
-PYBITES_BORN = datetime(year=2016, month=12, day=19)
-print(PYBITES_BORN)
+PYBITES_BORN = datetime.datetime(year=2016, month=12, day=19)
 
 
 def gen_special_pybites_dates():
-    pass
+    a = []
+    while PYBITES_BORN.year < 2017:
+        newdate = PYBITES_BORN.day + 100
+        a.append(newdate)
+    return a
+
+
+
+
+gen_special_pybites_dates()
+
+
+print('#'*200)
