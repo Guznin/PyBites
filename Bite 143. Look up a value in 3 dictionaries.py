@@ -1,4 +1,4 @@
-"""In this Bite you are presented with 3 dictionaries. 
+""" In this Bite you are presented with 3 dictionaries. 
 Complete get_person_age that takes a name as argument and 
 returns the age if in any of the 3 dictionaries. 
 The lookup should be case insensitive, so tim, Tim and tiM
@@ -7,9 +7,9 @@ should all yield 30. If not in any of the dictionaries, return Not found.
 Note that some persons are in 2 of the 3 dictionaries. 
 In that case return the age of the last dictionaries 
 (so group3 takes precedence over group2 and group2 takes precedence over group1). 
-Check out the standard library ... :) - have fun!"""
+Check out the standard library ... :) - have fun! """
 
-import string
+from collections import ChainMap
 
 NOT_FOUND = "Not found"
 
@@ -25,29 +25,10 @@ def get_person_age(name):
        If name in > 1 dict, return the match of the group with
        greatest N (so group3 > group2 > group1)
     """
-    name.lower()
-    mylist = []
-    dict_set = (group1, group2, group3)
-    for i in dict_set:
-        if name.lower() in i:
-            mylist.append(i[name.lower()])
-    if len(mylist) > 0:
-        return mylist[-1]
-    else:
-        return NOT_FOUND
+    name = str(name).lower()
+    dict_set = ChainMap(group1, group2, group3)
+    return dict_set.get(name, NOT_FOUND)
+
+
 
 get_person_age(None)
-
-
-
-# from collections import ChainMap
-# def get_person_age(name):
-#     """Look up name (case insensitive search) and return age.
-#        If name in > 1 dict, return the match of the group with
-#        greatest N (so group3 > group2 > group1)
-#     """
-#     name = str(name).lower()
-#     # search goes in order of addition so as per requirements
-#     # we insert groups from gt (#3) to lt (#1)
-#     m = ChainMap(group3, group2, group1)
-#     return m.get(name, NOT_FOUND)
